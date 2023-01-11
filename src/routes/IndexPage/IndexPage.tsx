@@ -5,19 +5,38 @@ import {useBem, useComponents, useSelector, useFetch} from '@steroidsjs/core/hoo
 
 import Grid from "@steroidsjs/core/ui/list/Grid"
 
+import axios from "axios"
+
+// import Http from "@steroidsjs/core/components/HttpComponent"
+// import Featch from "@steroidsjs/core/hoc/fetch"
+
+// import useComponents from '@steroidsjs/core/hooks';
+
 export default function IndexPage() {
     const bem = useBem('IndexPage');
 
     let resF = useFetch()
 
+    let components = useComponents();
+
     useEffect(()=>{
+
+        // console.log(components.http)
+
+        // console.log(components.http.get("https://www.cbr-xml-daily.ru/daily_json.js"))
+
+        // new Http({}, {})
+
+        // Featch(()=>{})
+
+        axios({method: "GET", url: "https://www.cbr-xml-daily.ru/daily_json.js"}).then(res=>console.log(res.data))
 
         //{method: "GET", url: "https://www.cbr.ru/scripts/XML_daily.asp"}
 
 
-        let res = resF.fetch({method: "GET", url: "https://www.cbr-xml-daily.ru/daily_json.js"})
+        // let res = resF.fetch({method: "GET", url: "https://www.cbr-xml-daily.ru/daily_json.js", mode: "corse"})
 
-        console.log("render", res)
+        // console.log("render", res)
 
     }, [])
 
