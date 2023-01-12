@@ -1,16 +1,9 @@
 import  React, {useEffect} from 'react';
-
 import './IndexPage.scss';
 import {useBem, useComponents, useSelector, useFetch} from '@steroidsjs/core/hooks';
-
 import Grid from "@steroidsjs/core/ui/list/Grid"
-
 import axios from "axios"
 
-// import Http from "@steroidsjs/core/components/HttpComponent"
-// import Featch from "@steroidsjs/core/hoc/fetch"
-
-// import useComponents from '@steroidsjs/core/hooks';
 
 export default function IndexPage() {
     const bem = useBem('IndexPage');
