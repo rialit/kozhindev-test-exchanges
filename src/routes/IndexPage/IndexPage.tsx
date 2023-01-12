@@ -1,8 +1,11 @@
 import  React, {useEffect} from 'react';
 import './IndexPage.scss';
-import {useBem, useComponents, useSelector, useFetch} from '@steroidsjs/core/hooks';
+import {useBem, useComponents, useSelector, useFetch, useDispatch} from '@steroidsjs/core/hooks';
 import Grid from "@steroidsjs/core/ui/list/Grid"
 import axios from "axios"
+
+import Button from '@steroidsjs/core/ui/form/Button/Button';
+import { updateList } from 'actions/currencyList';
 
 
 export default function IndexPage() {
@@ -11,6 +14,20 @@ export default function IndexPage() {
     let resF = useFetch()
 
     let components = useComponents();
+
+    const dispatch = useDispatch()
+
+    let isLoad = useSelector(state=>state.currencyList.isLoad)
+    let errorText = useSelector(state=>state.currencyList.errorText)
+
+    useEffect(()=>{
+        console.log(isLoad)
+    }, [isLoad])
+
+    const chancheLoad = ()=>{
+        
+        dispatch(updateList())
+    }
 
     useEffect(()=>{
 
@@ -22,7 +39,7 @@ export default function IndexPage() {
 
         // Featch(()=>{})
 
-        axios({method: "GET", url: "https://www.cbr-xml-daily.ru/daily_json.js"}).then(res=>console.log(res.data))
+        // axios({method: "GET", url: "https://www.cbr-xml-daily.ru/daily_json.js"}).then(res=>console.log(res.data))
 
         //{method: "GET", url: "https://www.cbr.ru/scripts/XML_daily.asp"}
 
@@ -76,6 +93,13 @@ export default function IndexPage() {
             >   
                 test
             </Grid>
+
+
+            <div>
+                {isLoad && <div>loading ...</div> }
+                <Button onClick={chancheLoad} >ClickMe</Button>
+                {errorText && <div>{errorText}</div>}
+            </div>
 
         </div>
     );
