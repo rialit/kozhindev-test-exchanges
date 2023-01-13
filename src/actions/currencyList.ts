@@ -78,7 +78,8 @@ export const updateForm2 = (newInputValue:string) => (dispatch, getState:()=>Roo
 
 */
 
-import {request} from "api/updateCurrency"
+import {transformCurrenct} from "../api/updateCurrency"
+import {reCountCurrency} from "../api/baseCurrency"
 import axios from "axios"
 
 export const Actions = {
@@ -102,7 +103,7 @@ interface itemCurrency {
 }
 
 export const addItems = (payload:Array<itemCurrency>) => ({
-    type: Actions.SET_LAST_UPDATE,
+    type: Actions.ADD_ITEMS,
     payload,
 });
 
@@ -116,14 +117,12 @@ export const setError = (payload:String) => ({
     payload,
 });
 
-export const setLastUpdate = (payload:String) => ({
+export const setLastUpdate = (payload:Number) => ({
     type: Actions.SET_LAST_UPDATE,
     payload,
 });
 
-export const updateList = () => async (dispatch)=>{
-
-	// setLoad()
+export const updateList = () => async (dispatch, state)=>{
 
     dispatch(setLoad(true))
 
@@ -132,17 +131,19 @@ export const updateList = () => async (dispatch)=>{
 
         dispatch(setError(""))
 
+        let updateCurrency = reCountCurrency(transformCurrenct(state.getState(), res.data.Valute))
+
+        dispatch(addItems(updateCurrency))
+        dispatch(setLastUpdate( (new Date()).getTime() ))
+
     })
     .catch(res=>{
-        console.log(res)
-        if(res && res.code && res.code == "ERR_NETWORK"){
-            dispatch(setError("Отсутствует интернет соединение"))
-        } else {
-            dispatch(setError("Ошибка соединения"))
-        }
 
+        dispatch(setError( res?.code == "ERR_NETWORK" ? "Отсутствует интернет соединение" : "Ошибка соединения" ))
+
+    })
+    .finally(()=>{
         dispatch(setLoad(false))
-
     })
 
     setTimeout(()=>{

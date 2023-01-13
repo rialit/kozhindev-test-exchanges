@@ -1,9 +1,15 @@
 
 import axios from "axios"
 
-export async function request() {
+export async function transformCurrenct(stateCurrency, requestValue) {
 
-    return axios({method: "GET", url: "https://www.cbr-xml-daily.ru/daily_json.js"})
-    .then(res=>res.data)
+    return stateCurrency.map(currency => {
+
+        return {
+            ...currency,
+            value: (requestValue[currency.cod] ? requestValue[currency.cod].Value : 1)
+        }
+
+    })
     
 }

@@ -1,14 +1,15 @@
 
 
 import {Actions} from "../actions/currencyList"
+import {baseCurrency, reCountCurrency} from "../api/baseCurrency"
 
 
 const initialState = {
 
-	items: [],
+	items: reCountCurrency(baseCurrency),
 	isLoad: false,
 	errorText: "",
-	lastUpdate: ""
+	lastUpdate: 0
 
 }
 
