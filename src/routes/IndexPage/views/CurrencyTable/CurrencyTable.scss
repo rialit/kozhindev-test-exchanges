@@ -1,0 +1,45 @@
+@import 'style/variables';
+
+.CurrencyTable{
+
+    .CurrencyTable__grid table{
+        font-size: 14px;
+        font-weight: 500;
+        color: #999;
+    }
+
+    .CurrencyTable__table-value-item{
+
+        &::before{
+            width: 0%;
+            padding-right: 0px;
+        }
+
+        &_content_{
+
+            @media (max-width: 767.98px){
+                // &ID::before{content: "ID"}
+            }
+        
+        }
+        
+    }
+
+    .CurrencyTable__button{
+        display: flex;
+        justify-content: center;
+    }
+
+    .CurrencyTable__sarch{
+        margin: 24px 0px;
+        max-width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .CurrencyTable__search-icon-close{
+        margin-left: 16px;
+    }
+
+}

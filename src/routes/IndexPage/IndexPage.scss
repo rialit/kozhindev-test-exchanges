@@ -1,5 +1,10 @@
 @import 'style/variables';
 
 .IndexPage {
-  padding: 10px;
+    
+    &__header-wrap{
+        padding: 40px;
+        background-color: #12A185;
+    }
+
 }

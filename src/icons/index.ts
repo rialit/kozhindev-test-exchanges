@@ -13,4 +13,9 @@ export default {
 
     "long-arrow-alt-up": require('@fortawesome/fontawesome-free/svgs/solid/chevron-up.svg'),
     "long-arrow-alt-down": require('@fortawesome/fontawesome-free/svgs/solid/chevron-down.svg'),
+    arrowSortUp: require('../../public/icons/arrow-sort-top.svg'),
+    arrowSortDown: require('../../public/icons/arrow-sort-down.svg'),
+    logo: require('../../public/icons/logo-currency.svg'),
+    reLoad: require('../../public/icons/re-load.svg'),
+    arrowsChange: require('../../public/icons/arrows-change.svg')
 };

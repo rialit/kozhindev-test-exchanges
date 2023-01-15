@@ -1,0 +1,25 @@
+@import 'style/variables';
+
+.CurrencySelect{
+    
+    &__form{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        & > div:nth-child(1){
+            width: 60%;
+        }
+        & > div:nth-child(2){
+            width: 40%;
+        }
+    }
+
+    &__input{
+        // width: 60%;
+    }
+
+    &__select{
+        // width: 40%;
+    }
+
+}

@@ -1,13 +1,13 @@
 
 import axios from "axios"
 
-export async function transformCurrenct(stateCurrency, requestValue) {
+export function transformCurrenct(stateCurrency, requestValue) {
 
     return stateCurrency.map(currency => {
 
         return {
             ...currency,
-            value: (requestValue[currency.cod] ? requestValue[currency.cod].Value : 1)
+            value: (requestValue[currency.code] ? requestValue[currency.code].Value : 1)
         }
 
     })

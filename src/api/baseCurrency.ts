@@ -3,7 +3,7 @@
 
 
 export const baseCurrency = [
-	{ id: 1, code: "RUB", name: "Русский рубль", value: 1 },
+	{ id: 1, code: "RUB", name: "Российский рубль", value: 1 },
 	{ id: 2, code: "USD", name: "Доллар США", value: 67.7775 },
 	{ id: 3, code: "EUR", name: "Евро", value: 72.7908 },
 	{ id: 4, code: "CNY", name: "Китайский юань", value: 10.0016 },
@@ -40,10 +40,29 @@ export const baseCurrency = [
 	{ id: 35, code: "JPY", name: "Японских иен", value: 51.3855 }
 ]
 
+interface initCurrency{
+	id: number,
+	code: string,
+	name: string,
+	value: number
+}
 
-export const reCountCurrency = (currencyList)=>{
+export interface Currency{
+	id: number,
+	code: string,
+	name: string,
+	value: number,
+	forRUB: number,
+	forUSD: number,
+	forEUR: number,
+	forCNY: number,
+	label?: string
+}
 
-	let RUB, USD, EUR, CNY = 0;
+
+export const reCountCurrency = (currencyList: Array<Currency | initCurrency>):Array<Currency> =>{
+
+	let RUB:number, USD:number, EUR:number, CNY :number = 0;
 
 	currencyList.map(e=>{
 		switch (e.code){
@@ -54,7 +73,7 @@ export const reCountCurrency = (currencyList)=>{
 		}
 	})
 
-	return currencyList.map(currency => {
+	return currencyList.map((currency:Currency)=> {
 
 		return {
 			...currency,
@@ -69,8 +88,3 @@ export const reCountCurrency = (currencyList)=>{
 
 }
 
-function floor(number){
-
-
-
-}

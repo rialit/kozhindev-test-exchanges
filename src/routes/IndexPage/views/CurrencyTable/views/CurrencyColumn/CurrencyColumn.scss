@@ -1,0 +1,26 @@
+@import 'style/variables';
+
+.CurrencyColumn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .CurrencyColumn__text{
+        font-weight: 500;
+        color: #999;
+        font-size: 16px;
+    }
+
+    .CurrencyColumn__icons{
+        display: flex;
+        flex-direction: column;
+
+        span{
+            font-size: 6px;
+        }
+
+        .CurrencyColumn__buttom-sort{
+            width: 10px;
+        }
+    }
+}

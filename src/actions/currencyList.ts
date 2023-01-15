@@ -87,6 +87,9 @@ export const Actions = {
     SET_LOAD:  "SET_LOAD",
     SET_ERROR:  "SET_ERROR",
     SET_LAST_UPDATE:  "SET_LAST_UPDATE",
+
+    SET_INPUT: "SET_INPUT",
+    SET_SELECT: "SET_SELECT"
 }
 
 
@@ -122,33 +125,86 @@ export const setLastUpdate = (payload:Number) => ({
     payload,
 });
 
+interface changeInputPayload{
+    name: string,
+    value: string
+}
+
+export const setInput = (payload:changeInputPayload) => ({
+    type: Actions.SET_INPUT,
+    payload,
+});
+
+export const setSelect = (payload:changeInputPayload) => ({
+    type: Actions.SET_SELECT,
+    payload,
+});
+
+export const getSelect = (name: string) => (dispatch, state) => {
+
+    const selectValue = state().currencyList.changes[name].select;
+    const select = state().currencyList.items.filter(e=>e.id==selectValue)
+
+    return select[0]
+}
+
+export const changeInput = (name: string, value: string, reqName: string) => (dispatch, state) => {
+
+    console.log("value", value)
+
+    // let strValue = value.replace(".", ",")
+
+    let strValue = value.replace(",", ".")
+
+    console.log(strValue, value)
+
+    dispatch(setInput({name, value:strValue}))
+
+    const select1 = dispatch(getSelect(name));
+    const select2 = dispatch(getSelect(reqName));
+
+    let valueInt = +(value.replace(",", "."))
+
+    let resVal = (select1.value / select2.value ) * (valueInt)
+
+    console.log(select1, select2, resVal)
+
+
+    dispatch(setInput({name:reqName, value:resVal+""}))
+
+}
+
+export const changeSelect = (name: string, value: string, reqName: string) => (dispatch, state) => {
+
+    dispatch(setSelect({name, value}))
+
+    const valueInput = state().currencyList.changes[name].input
+
+    dispatch(changeInput(name, valueInput, reqName))
+
+}
+
+
 export const updateList = () => async (dispatch, state)=>{
+
+    let load = state().currencyList.isLoad 
 
     dispatch(setLoad(true))
 
-    axios({method: "GET", url: "https://www.cbr-xml-daily.ru/daily_json.js"})
+    return axios({method: "GET", url: "https://www.cbr-xml-daily.ru/daily_json.js"})
     .then(res=>{
-
         dispatch(setError(""))
-
-        let updateCurrency = reCountCurrency(transformCurrenct(state.getState(), res.data.Valute))
-
+        let items = state().currencyList.items
+        let transformCurrenctItems = transformCurrenct(items, res.data.Valute)
+        let updateCurrency = reCountCurrency(transformCurrenctItems)
         dispatch(addItems(updateCurrency))
         dispatch(setLastUpdate( (new Date()).getTime() ))
-
     })
     .catch(res=>{
-
         dispatch(setError( res?.code == "ERR_NETWORK" ? "Отсутствует интернет соединение" : "Ошибка соединения" ))
-
     })
     .finally(()=>{
         dispatch(setLoad(false))
     })
-
-    setTimeout(()=>{
-        dispatch(setLoad(false))
-    }, 300)
-
 
 } 
