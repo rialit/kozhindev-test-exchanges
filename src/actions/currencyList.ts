@@ -82,6 +82,8 @@ export const changeInput = (name: string, value: string, reqName: string) => (di
 
     let resVal = (select1.value / select2.value ) * (valueInt)
 
+    resVal = resVal.toFixed(4)
+
     dispatch(setInput({name:reqName, value:resVal+""}))
 
 }
