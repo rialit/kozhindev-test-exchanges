@@ -1,8 +1,7 @@
-import  React, {useEffect, useState, useMemo} from 'react';
+import  React from 'react';
 import './CurrencySelect.scss';
-import {useBem, useComponents, useSelector, useFetch, useDispatch} from '@steroidsjs/core/hooks';
-import { DropDownField, Form, NumberField } from '@steroidsjs/core/ui/form';
-import { Currency } from 'api/baseCurrency';
+import {useBem, useSelector, useDispatch} from '@steroidsjs/core/hooks';
+import { DropDownField, NumberField } from '@steroidsjs/core/ui/form';
 
 import { DataProviderItems } from '@steroidsjs/core/hooks/useDataProvider';
 import { changeInput, changeSelect } from 'actions/currencyList';
@@ -10,15 +9,9 @@ import { changeInput, changeSelect } from 'actions/currencyList';
 
 interface CurrencyChangeProps{
     items: DataProviderItems
-    valueInput?: string,
-    valueSelect?: number,
-    onChangeInput?: (text:string)=>void,
-    onChangeSelect?: (text:number)=>void,
     name: string,
     reqName: string
 }
-
-
 
 export default function CurrencySelect(props:CurrencyChangeProps):JSX.Element {
     const bem = useBem('CurrencySelect');
@@ -28,19 +21,12 @@ export default function CurrencySelect(props:CurrencyChangeProps):JSX.Element {
     let valueSelect = useSelector(state=>state.currencyList.changes[props.name].select)
 
     const onChangeInput = (text:string)=>{
-
         dispatch(changeInput(props.name, text, props.reqName))
     }
 
     const onChangeSelect = (value:string)=>{
-
         dispatch(changeSelect(props.name, value, props.reqName))
-
     }
-
-    useEffect(()=>{
-        console.log("valueInput",valueInput)
-    }, [valueInput])
 
     return (
         <div className={bem.block()}>
@@ -51,11 +37,9 @@ export default function CurrencySelect(props:CurrencyChangeProps):JSX.Element {
                     value={valueInput}
                     onChange={onChangeInput}
                     step={"0.1"}
-                    
                 />
 
                 <div>
-                    
                     <DropDownField 
                         className={bem.element("select")} 
                         items={props.items} 

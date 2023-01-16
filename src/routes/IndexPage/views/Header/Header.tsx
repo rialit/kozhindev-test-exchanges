@@ -1,6 +1,6 @@
-import  React, {useEffect, useState, useMemo} from 'react';
+import  React from 'react';
 import './Header.scss';
-import {useBem, useComponents, useSelector, useFetch, useDispatch} from '@steroidsjs/core/hooks';
+import {useBem, useDispatch} from '@steroidsjs/core/hooks';
 
 import Icon from '@steroidsjs/core/ui/icon/Icon' 
 import Link from '@steroidsjs/core/ui/nav/Link'

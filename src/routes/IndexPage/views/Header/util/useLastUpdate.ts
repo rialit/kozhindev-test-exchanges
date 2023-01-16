@@ -2,7 +2,7 @@ import {useSelector} from '@steroidsjs/core/hooks';
 import { useMemo } from 'react';
 
 
-export default function(){
+export default function():string{
     
     let lastUpdate = useSelector(state=>state.currencyList.lastUpdate)
 

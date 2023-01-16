@@ -1,30 +1,27 @@
-import  React, {useEffect, useState} from 'react';
+import  React from 'react';
 import './IndexPage.scss';
-import {useBem, useDispatch} from '@steroidsjs/core/hooks';
+import {useBem} from '@steroidsjs/core/hooks';
 import CurrencyTable from "./views/CurrencyTable"
 import Header from "./views/Header"
 import CurrencyChange from './views/CurrencyChange';
-import { updateList } from 'actions/currencyList';
+import Wraper from 'shared/Wraper';
 
 
-export default function IndexPage() {
+export default function IndexPage():JSX.Element {
     const bem = useBem('IndexPage');
-    const dispatch = useDispatch()
-
-    // useEffect(()=>{
-    //     dispatch(updateList())
-    // }, [])
-
 
     return (
         <div className={bem.block()}>
             
             <div className={bem.element("header-wrap")}>
-                <Header />
-                <CurrencyChange />
+                <Wraper>
+                    <Header />
+                    <CurrencyChange />
+                </Wraper>
             </div>
-
-            <CurrencyTable />
+            <Wraper>
+                <CurrencyTable />
+            </Wraper>
 
         </div>
     );

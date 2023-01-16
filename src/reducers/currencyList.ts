@@ -1,8 +1,6 @@
 
-
 import {Actions} from "../actions/currencyList"
 import {baseCurrency, reCountCurrency} from "../api/baseCurrency"
-
 
 const initialState = {
 
@@ -13,16 +11,14 @@ const initialState = {
 	changes:{
 		left: {
 			input: "0",
-			select: 1
+			select: localStorage.getItem('left') ? +localStorage.getItem('left') : 1
 		},
 		right: {
 			input: "0",
-			select: 2
+			select: localStorage.getItem('right') ? +localStorage.getItem('right') : 2
 		}
 	}
-
 }
-
 
 export default function(state = initialState, action ){
 

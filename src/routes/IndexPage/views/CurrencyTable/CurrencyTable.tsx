@@ -1,12 +1,12 @@
-import  React, {useEffect, useState, useMemo} from 'react';
+import  React, {useState, useMemo} from 'react';
 import './CurrencyTable.scss';
-import {useBem, useComponents, useSelector, useFetch, useDispatch} from '@steroidsjs/core/hooks';
+import {useBem, useSelector} from '@steroidsjs/core/hooks';
 import Grid from "@steroidsjs/core/ui/list/Grid"
 
 
 import {Button, InputField} from '@steroidsjs/core/ui/form';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
-import { updateList, setError } from 'actions/currencyList';
+
 
 import useColumns, {changeSortInterface} from './util/useColumns';
 import { numberSort, stringSort } from './util/sorting';

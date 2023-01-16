@@ -6,10 +6,10 @@
     "./node_modules/intl-messageformat/lib/src/core.js 78:63-76\n\"export '__spreadArray' was not found in 'tslib'"
   ],
   "assetsByChunkName": {
-    "common": "frontend/bundle-common.13b625c6eba868608dfc.js",
+    "common": "frontend/bundle-common.f85b37dcd86bae30e3fd.js",
     "index": [
-      "frontend/bundle-index.13b625c6eba868608dfc.css",
-      "frontend/bundle-index.13b625c6eba868608dfc.js"
+      "frontend/bundle-index.f85b37dcd86bae30e3fd.css",
+      "frontend/bundle-index.f85b37dcd86bae30e3fd.js"
     ]
   },
   "assets": [
@@ -22,7 +22,7 @@
       "emitted": true
     },
     {
-      "name": "frontend/bundle-common.13b625c6eba868608dfc.js",
+      "name": "frontend/bundle-common.f85b37dcd86bae30e3fd.js",
       "size": 1498,
       "chunks": [
         "common"
@@ -36,8 +36,8 @@
       "emitted": true
     },
     {
-      "name": "frontend/bundle-index.13b625c6eba868608dfc.css",
-      "size": 213293,
+      "name": "frontend/bundle-index.f85b37dcd86bae30e3fd.css",
+      "size": 215295,
       "chunks": [
         "index"
       ],
@@ -50,8 +50,8 @@
       "emitted": true
     },
     {
-      "name": "frontend/bundle-index.13b625c6eba868608dfc.js",
-      "size": 1203116,
+      "name": "frontend/bundle-index.f85b37dcd86bae30e3fd.js",
+      "size": 1213659,
       "chunks": [
         "index"
       ],
@@ -75,8 +75,8 @@
       "emitted": true
     },
     {
-      "name": "./images/arrow-sort-down.8d2d5baab779129dcffee7ca951b9c24.svg",
-      "size": 529,
+      "name": "frontend/images/arrow-sort-down.ec0d17a2b87ad7bbbb5755e2552bb713.svg",
+      "size": 532,
       "chunks": [],
       "chunkNames": [],
       "info": {
@@ -86,13 +86,24 @@
       "emitted": true
     },
     {
-      "name": "frontend/images/arrow-sort-top.aaae7bc6f2f46fcf58b9505f2d363805.svg",
-      "size": 532,
+      "name": "frontend/images/arrow-sort-top.dbe330f86b3c7408429d67b0e0d29045.svg",
+      "size": 535,
       "chunks": [],
       "chunkNames": [],
       "info": {
         "immutable": true,
         "sourceFilename": "public/icons/arrow-sort-top.svg"
+      },
+      "emitted": true
+    },
+    {
+      "name": "frontend/images/arrows-change.357f05d8baa13784b78343106e9ffd39.svg",
+      "size": 2177,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "immutable": true,
+        "sourceFilename": "public/icons/arrows-change.svg"
       },
       "emitted": true
     },
@@ -152,6 +163,17 @@
       "emitted": true
     },
     {
+      "name": "frontend/images/logo-currency.302a11aeef8148dd7d60d837fe8ab62a.svg",
+      "size": 2653,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "immutable": true,
+        "sourceFilename": "public/icons/logo-currency.svg"
+      },
+      "emitted": true
+    },
+    {
       "name": "frontend/images/pen-square.8a84e9b4daf936fa53ecb09c5b04ae05.svg",
       "size": 649,
       "chunks": [],
@@ -170,6 +192,17 @@
       "info": {
         "immutable": true,
         "sourceFilename": "node_modules/@fortawesome/fontawesome-free/svgs/solid/plus-square.svg"
+      },
+      "emitted": true
+    },
+    {
+      "name": "frontend/images/re-load.bad55820ff44ea03e249d56eaba03d94.svg",
+      "size": 2591,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "immutable": true,
+        "sourceFilename": "public/icons/re-load.svg"
       },
       "emitted": true
     },
@@ -216,11 +249,14 @@
     "frontend/images/plus-square.1a42b2819bb0b6733b1740df6a672af6.svg",
     "frontend/images/times-circle.fbe9a71fb4cca6c00727edfa817798b2.svg",
     "frontend/images/trash.16bcf1021aabb13e1f4677dc3e83cf22.svg",
-    "frontend/images/arrow-sort-down.8d2d5baab779129dcffee7ca951b9c24.svg",
-    "frontend/images/arrow-sort-top.aaae7bc6f2f46fcf58b9505f2d363805.svg",
-    "frontend/bundle-common.13b625c6eba868608dfc.js",
-    "frontend/bundle-index.13b625c6eba868608dfc.css",
-    "frontend/bundle-index.13b625c6eba868608dfc.js",
+    "frontend/images/arrow-sort-down.ec0d17a2b87ad7bbbb5755e2552bb713.svg",
+    "frontend/images/arrow-sort-top.dbe330f86b3c7408429d67b0e0d29045.svg",
+    "frontend/images/arrows-change.357f05d8baa13784b78343106e9ffd39.svg",
+    "frontend/images/logo-currency.302a11aeef8148dd7d60d837fe8ab62a.svg",
+    "frontend/images/re-load.bad55820ff44ea03e249d56eaba03d94.svg",
+    "frontend/bundle-common.f85b37dcd86bae30e3fd.js",
+    "frontend/bundle-index.f85b37dcd86bae30e3fd.css",
+    "frontend/bundle-index.f85b37dcd86bae30e3fd.js",
     "bundle-all.js",
     "frontend/index.html"
   ]
